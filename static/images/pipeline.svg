@@ -1,0 +1,54 @@
+<svg width="1400" height="560" viewBox="0 0 1400 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SurveyReview pipeline</title>
+  <desc id="desc">Pipeline from survey papers and review reports to structured labels and evaluator alignment.</desc>
+  <defs>
+    <linearGradient id="blueTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1e293b" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="560" fill="#f8fafc"/>
+  <g filter="url(#shadow)">
+    <rect x="80" y="90" width="260" height="220" rx="24" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="120" y="146" fill="#1e293b" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Survey papers</text>
+    <text x="120" y="188" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="19">675 papers</text>
+    <path d="M120 228h150M120 260h110" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="80" y="340" width="260" height="130" rx="24" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="120" y="398" fill="#1e293b" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">Review reports</text>
+    <text x="120" y="434" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="19">1,630 reports</text>
+  </g>
+
+  <path d="M370 235h145" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M370 405c66 0 82-170 145-170" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M500 216l28 19-28 19" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="132" width="340" height="250" rx="28" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="575" y="190" fill="#1e293b" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Structured labels</text>
+    <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">
+      <rect x="575" y="226" width="250" height="38" rx="19" fill="#eff6ff"/>
+      <text x="598" y="251" fill="#2563eb">Readability</text>
+      <rect x="575" y="276" width="250" height="38" rx="19" fill="#ecfdf5"/>
+      <text x="598" y="301" fill="#0f766e">Criticalness</text>
+      <rect x="575" y="326" width="250" height="38" rx="19" fill="#f1f5f9"/>
+      <text x="598" y="351" fill="#1e293b">Comprehensiveness + Structure</text>
+    </g>
+  </g>
+
+  <path d="M895 257h145" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1024 238l28 19-28 19" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1065" y="132" width="255" height="250" rx="28" fill="#1e293b"/>
+    <text x="1105" y="190" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Evaluator</text>
+    <text x="1105" y="228" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="19">Score + rationale</text>
+    <rect x="1105" y="268" width="160" height="16" rx="8" fill="#334155"/>
+    <rect x="1105" y="268" width="108" height="16" rx="8" fill="url(#blueTeal)"/>
+    <text x="1105" y="330" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">HAS / RQS</text>
+  </g>
+</svg>
