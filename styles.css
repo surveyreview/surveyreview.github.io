@@ -90,11 +90,12 @@ a {
 }
 
 .publication-title {
-  margin: 0 auto 1.5rem;
-  color: var(--text);
-  font-size: clamp(1.75rem, 3.4vw, 2.7rem);
-  font-weight: 800;
-  line-height: 1.1;
+  margin: 0 auto 1.65rem;
+  max-width: 980px;
+  color: #111827;
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.18;
   letter-spacing: 0;
 }
 
