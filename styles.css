@@ -73,10 +73,10 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
-  margin: 0 auto 1.8rem;
-  color: var(--text);
-  font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+  gap: 0.65rem;
+  margin: 0 auto 1.55rem;
+  color: #1f7682;
+  font-size: clamp(1.55rem, 3.4vw, 2.45rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0;
@@ -84,15 +84,15 @@ a {
 
 .project-icon {
   display: block;
-  width: clamp(58px, 9vw, 92px);
-  height: clamp(54px, 8.4vw, 86px);
+  width: clamp(44px, 6.8vw, 66px);
+  height: clamp(42px, 6.4vw, 62px);
   object-fit: contain;
 }
 
 .publication-title {
   margin: 0 auto 1.5rem;
   color: var(--text);
-  font-size: clamp(2rem, 4.1vw, 3.25rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.7rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
