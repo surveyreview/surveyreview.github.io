@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurveyReview</title>
+  <meta
+    name="description"
+    content="SurveyReview is a reviewer-aligned benchmark for evaluating survey-review quality across readability, criticalness, comprehensiveness, and structure."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top">SurveyReview</a>
+      <nav class="topnav">
+        <a href="#overview">Overview</a>
+        <a href="#dimensions">Dimensions</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#examples">Examples</a>
+        <a href="#use">Use It</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Benchmark Website</p>
+          <h1 id="hero-title">SurveyReview</h1>
+          <p id="hero-subtitle" class="hero-subtitle">
+            A Reviewer-Aligned Benchmark for Survey Evaluators
+          </p>
+          <p id="hero-announcement" class="hero-announcement"></p>
+          <div id="hero-links" class="hero-links"></div>
+        </div>
+        <aside class="hero-panel">
+          <div class="hero-panel-head">
+            <span>Current release</span>
+            <strong>Anonymized test version</strong>
+          </div>
+          <div id="hero-metrics" class="hero-metrics"></div>
+        </aside>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Overview</p>
+          <h2>Benchmarking survey evaluation like a reviewer</h2>
+        </div>
+        <div class="overview-grid">
+          <article class="copy-card">
+            <p id="overview-intro"></p>
+          </article>
+          <article class="copy-card">
+            <h3>What this release contains</h3>
+            <ul id="overview-highlights" class="bullet-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="dimensions" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Dimensions</p>
+          <h2>Four reviewer-aligned scoring axes</h2>
+        </div>
+        <div id="dimension-grid" class="dimension-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <p class="eyebrow">Pipeline</p>
+          <h2>How SurveyReview is organized</h2>
+        </div>
+        <div id="pipeline-grid" class="pipeline-grid"></div>
+      </section>
+
+      <section id="dataset" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Dataset Snapshot</p>
+          <h2>Current testset distribution</h2>
+        </div>
+        <div id="dataset-grid" class="dataset-grid"></div>
+      </section>
+
+      <section id="leaderboard" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Leaderboard</p>
+          <h2>Current benchmark results</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Rank</th>
+                <th rowspan="2">Model</th>
+                <th rowspan="2">SSR ↑</th>
+                <th colspan="2">Read.</th>
+                <th colspan="2">Crit.</th>
+                <th colspan="2">Comp.</th>
+                <th colspan="2">Stru.</th>
+                <th colspan="2">AVE</th>
+                <th rowspan="2">RQS ↑</th>
+              </tr>
+              <tr>
+                <th>MSE</th>
+                <th>MAE</th>
+                <th>MSE</th>
+                <th>MAE</th>
+                <th>MSE</th>
+                <th>MAE</th>
+                <th>MSE</th>
+                <th>MAE</th>
+                <th>MSE</th>
+                <th>MAE</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="examples" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Examples</p>
+          <h2>Representative reviewer comments</h2>
+        </div>
+        <div class="examples-shell">
+          <div id="example-tabs" class="example-tabs"></div>
+          <article class="example-card">
+            <div class="example-head">
+              <div>
+                <p id="example-dimension" class="example-label"></p>
+                <h3 id="example-title"></h3>
+              </div>
+              <div id="example-score" class="score-badge"></div>
+            </div>
+            <p id="example-uid" class="muted"></p>
+            <p id="example-summary" class="example-summary"></p>
+            <ul id="example-reasons" class="bullet-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="use" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Use It</p>
+          <h2>How to plug in your own links later</h2>
+        </div>
+        <div class="overview-grid">
+          <article class="copy-card">
+            <h3>Immediate usage</h3>
+            <ul id="usage-list" class="bullet-list"></ul>
+          </article>
+          <article class="copy-card">
+            <h3>Release note</h3>
+            <p id="release-note"></p>
+            <p class="contact-line">
+              Contact:
+              <a id="contact-link" href="#"></a>
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

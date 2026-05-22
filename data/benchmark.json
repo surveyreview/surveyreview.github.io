@@ -1,0 +1,312 @@
+{
+  "site": {
+    "title": "SurveyReview",
+    "subtitle": "A Reviewer-Aligned Benchmark for Survey Evaluators",
+    "announcement": "The current website ships with the anonymized test version from the repository. You can point the dataset button to Hugging Face later without touching the page layout.",
+    "repoUrl": "https://github.com/brighterr/SurveyReview",
+    "datasetUrl": "https://github.com/brighterr/SurveyReview/tree/main/data/testset",
+    "paperUrl": "",
+    "contactEmail": "zhangyuheng@ruc.edu.cn"
+  },
+  "heroMetrics": [
+    {
+      "value": "163",
+      "label": "anonymized survey articles"
+    },
+    {
+      "value": "448",
+      "label": "dimension-level test annotations"
+    },
+    {
+      "value": "4",
+      "label": "review dimensions"
+    },
+    {
+      "value": "7",
+      "label": "reported baseline systems"
+    }
+  ],
+  "overview": {
+    "intro": "SurveyReview evaluates whether a model can judge survey-style academic writing the way a reviewer would. Instead of measuring generic summarization quality, it scores review-oriented decisions across readability, criticalness, comprehensiveness, and structure, and also tracks the quality of generated reasoning with an RQS judge.",
+    "highlights": [
+      "Reviewer-aligned labels over four concrete survey-review dimensions.",
+      "An anonymized test release that is already runnable with the included evaluation pipeline.",
+      "A lightweight API-based evaluator plus a separate reason-quality judge.",
+      "A leaderboard format that reports both score prediction quality and reasoning quality."
+    ]
+  },
+  "dimensions": [
+    {
+      "name": "Readability",
+      "description": "Measures overall clarity and ease of understanding in the manuscript presentation.",
+      "samples": 120,
+      "range": "Score range: -2, -1, 1, 2"
+    },
+    {
+      "name": "Criticalness",
+      "description": "Measures whether the manuscript offers new insights, meaningful critique, or depth beyond a surface-level recap.",
+      "samples": 112,
+      "range": "Score range: -2, -1, 1, 2"
+    },
+    {
+      "name": "Comprehensiveness",
+      "description": "Measures whether references are complete, relevant, and sufficient for a solid survey.",
+      "samples": 106,
+      "range": "Score range: -2, -1, 1, 2"
+    },
+    {
+      "name": "Structure",
+      "description": "Measures the logical flow and coherence across sections and subsections.",
+      "samples": 110,
+      "range": "Score range: -2, -1, 1, 2"
+    }
+  ],
+  "pipeline": [
+    {
+      "step": "01",
+      "title": "Load survey excerpts",
+      "description": "The evaluator reads anonymized article text from the current repository release and pairs each UID with dimension-specific labels."
+    },
+    {
+      "step": "02",
+      "title": "Predict reviewer scores",
+      "description": "A target model receives the dimension prompt and the survey text, then must output brief reasoning plus a discrete score from the benchmark scale."
+    },
+    {
+      "step": "03",
+      "title": "Judge the reasoning",
+      "description": "A second model scores the quality of the predicted reasoning against the reference comments, producing the reported RQS metric."
+    }
+  ],
+  "datasetStats": [
+    {
+      "name": "Readability",
+      "definition": "Clarity and ease of understanding.",
+      "total": 120,
+      "positive": 38,
+      "negative": 82,
+      "distribution": {
+        "-2": 10,
+        "-1": 72,
+        "1": 29,
+        "2": 9
+      }
+    },
+    {
+      "name": "Criticalness",
+      "definition": "Originality and depth of critique.",
+      "total": 112,
+      "positive": 40,
+      "negative": 72,
+      "distribution": {
+        "-2": 14,
+        "-1": 58,
+        "1": 32,
+        "2": 8
+      }
+    },
+    {
+      "name": "Comprehensiveness",
+      "definition": "Coverage and relevance of references.",
+      "total": 106,
+      "positive": 22,
+      "negative": 84,
+      "distribution": {
+        "-2": 10,
+        "-1": 74,
+        "1": 14,
+        "2": 8
+      }
+    },
+    {
+      "name": "Structure",
+      "definition": "Organization and section coherence.",
+      "total": 110,
+      "positive": 27,
+      "negative": 83,
+      "distribution": {
+        "-2": 6,
+        "-1": 77,
+        "1": 24,
+        "2": 3
+      }
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model": "SurveyReviewer",
+      "org": "This work",
+      "ssr": 0.74,
+      "readabilityMse": 1.43,
+      "readabilityMae": 0.72,
+      "criticalnessMse": 1.52,
+      "criticalnessMae": 0.82,
+      "comprehensivenessMse": 1.26,
+      "comprehensivenessMae": 0.56,
+      "structureMse": 1.29,
+      "structureMae": 0.65,
+      "averageMse": 1.38,
+      "averageMae": 0.69,
+      "rqs": 0.36
+    },
+    {
+      "rank": 2,
+      "model": "GPT-5.2",
+      "org": "OpenAI",
+      "ssr": 0.68,
+      "readabilityMse": 2.13,
+      "readabilityMae": 1.07,
+      "criticalnessMse": 1.97,
+      "criticalnessMae": 0.97,
+      "comprehensivenessMse": 2.04,
+      "comprehensivenessMae": 1.08,
+      "structureMse": 2.98,
+      "structureMae": 1.47,
+      "averageMse": 2.28,
+      "averageMae": 1.15,
+      "rqs": 0.42
+    },
+    {
+      "rank": 3,
+      "model": "Claude-Opus-4.5",
+      "org": "Anthropic",
+      "ssr": 0.68,
+      "readabilityMse": 2.91,
+      "readabilityMae": 1.29,
+      "criticalnessMse": 1.88,
+      "criticalnessMae": 0.88,
+      "comprehensivenessMse": 2.66,
+      "comprehensivenessMae": 1.23,
+      "structureMse": 3.65,
+      "structureMae": 1.58,
+      "averageMse": 2.77,
+      "averageMae": 1.25,
+      "rqs": 0.48
+    },
+    {
+      "rank": 4,
+      "model": "Qwen3-32B",
+      "org": "Alibaba",
+      "ssr": 0.61,
+      "readabilityMse": 3.05,
+      "readabilityMae": 1.45,
+      "criticalnessMse": 3.24,
+      "criticalnessMae": 1.51,
+      "comprehensivenessMse": 3.22,
+      "comprehensivenessMae": 1.54,
+      "structureMse": 3.35,
+      "structureMae": 1.53,
+      "averageMse": 3.21,
+      "averageMae": 1.51,
+      "rqs": 0.36
+    },
+    {
+      "rank": 5,
+      "model": "GLM-4.7",
+      "org": "Zhipu AI",
+      "ssr": 0.60,
+      "readabilityMse": 3.43,
+      "readabilityMae": 1.50,
+      "criticalnessMse": 2.58,
+      "criticalnessMae": 1.21,
+      "comprehensivenessMse": 3.66,
+      "comprehensivenessMae": 1.57,
+      "structureMse": 4.83,
+      "structureMae": 1.95,
+      "averageMse": 3.62,
+      "averageMae": 1.56,
+      "rqs": 0.37
+    },
+    {
+      "rank": 6,
+      "model": "gemini-3-pro",
+      "org": "Google",
+      "ssr": 0.58,
+      "readabilityMse": 3.84,
+      "readabilityMae": 1.52,
+      "criticalnessMse": 2.25,
+      "criticalnessMae": 1.00,
+      "comprehensivenessMse": 3.91,
+      "comprehensivenessMae": 1.49,
+      "structureMse": 5.76,
+      "structureMae": 2.11,
+      "averageMse": 3.94,
+      "averageMae": 1.53,
+      "rqs": 0.29
+    },
+    {
+      "rank": 7,
+      "model": "DeepSeek-v3.2",
+      "org": "DeepSeek",
+      "ssr": 0.58,
+      "readabilityMse": 4.78,
+      "readabilityMae": 1.88,
+      "criticalnessMse": 2.49,
+      "criticalnessMae": 1.15,
+      "comprehensivenessMse": 4.59,
+      "comprehensivenessMae": 1.82,
+      "structureMse": 4.02,
+      "structureMae": 1.76,
+      "averageMse": 3.97,
+      "averageMae": 1.65,
+      "rqs": 0.37
+    }
+  ],
+  "examples": [
+    {
+      "dimension": "Readability",
+      "uid": "anoy159",
+      "title": "Survey of Scientific Rigor Studied in Machine Learning",
+      "summary": "A representative low-score readability case where reviewers wanted the paper to make its audience and contribution substantially clearer.",
+      "score": -1,
+      "reasons": [
+        "Who is the audience is meant to be and what is the paper trying to tell that audience?",
+        "Because the intended audience is muddied, it is also unclear what the takeaway from the paper is.",
+        "I would like to see this paper make clearer what its contribution and audience are."
+      ]
+    },
+    {
+      "dimension": "Criticalness",
+      "uid": "anoy132",
+      "title": "The nutritional status of children living within institutionalized care: a systematic review",
+      "summary": "A positive criticalness example where the reviewer credits the paper for surfacing gaps and directions for future work.",
+      "score": 1,
+      "reasons": [
+        "The discussion section provides us with main gaps and new directions.",
+        "The manuscript highlights the continuing challenge of malnutrition among children in institutionalized care.",
+        "The review also points out that the area still needs more rigorous studies."
+      ]
+    },
+    {
+      "dimension": "Comprehensiveness",
+      "uid": "anoy116",
+      "title": "Community-level dietary intake of sodium, potassium, and sodium-to-potassium ratio as a global public health problem",
+      "summary": "A typical comprehensiveness issue where reviewers ask for missing regions, missing comparisons, or broader coverage of prior evidence.",
+      "score": -1,
+      "reasons": [
+        "Why no studies from South America or Canada were included in analysis?",
+        "Kindly provide in Discussion section data from WHO on Na, K intake and compare that to your data?"
+      ]
+    },
+    {
+      "dimension": "Structure",
+      "uid": "anoy132",
+      "title": "The nutritional status of children living within institutionalized care: a systematic review",
+      "summary": "A low-score structure example where the reviewer calls out section ordering and paragraph flow rather than scientific contribution.",
+      "score": -1,
+      "reasons": [
+        "Lines 141-157 could be rephrased and may be broken into two paragraphs.",
+        "Lines 170-189 read more like methods and may be better moved after improving the flow.",
+        "The authors may consider shifting this section to the methods section after improving its flow."
+      ]
+    }
+  ],
+  "usage": [
+    "Edit docs/data/benchmark.json to replace the current GitHub dataset URL with your Hugging Face dataset URL when it is ready.",
+    "Update the leaderboard array in the same JSON file whenever you have new scores; the table is rendered automatically.",
+    "If you later get a public paper URL, fill in site.paperUrl and the Paper button will appear by itself.",
+    "Deploy the docs folder with GitHub Pages; detailed steps are in docs/DEPLOY.md."
+  ],
+  "releaseNote": "This page is intentionally data-driven. Most future edits should be simple content swaps inside docs/data/benchmark.json rather than HTML or CSS changes."
+}
