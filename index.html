@@ -3,174 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SurveyReview</title>
-  <meta
-    name="description"
-    content="SurveyReview is a reviewer-aligned benchmark for evaluating survey-review quality across readability, criticalness, comprehensiveness, and structure."
-  >
+  <title>SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators</title>
+  <meta name="description" content="SurveyReview is a reviewer-aligned benchmark for evaluating survey-style LLM judges across readability, criticalness, comprehensiveness, and structure.">
+  <meta name="keywords" content="SurveyReview, benchmark, survey evaluation, LLM judge, peer review, NLP">
+  <meta name="author" content="Yuheng Zhang, Yuanchun Wang, Fanjin Zhang, Ruyu Zhao, Juanzi Li, Jie Tang, Jing Zhang">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators">
+  <meta property="og:description" content="A reviewer-aligned benchmark and baseline evaluator for survey-paper evaluation.">
+  <meta property="og:image" content="./static/images/hero-preview.svg">
+  <meta name="citation_title" content="SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators">
+  <meta name="citation_author" content="Zhang, Yuheng">
+  <meta name="citation_author" content="Wang, Yuanchun">
+  <meta name="citation_author" content="Zhang, Fanjin">
+  <meta name="citation_author" content="Zhao, Ruyu">
+  <meta name="citation_author" content="Li, Juanzi">
+  <meta name="citation_author" content="Tang, Jie">
+  <meta name="citation_author" content="Zhang, Jing">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="./static/pdfs/surveyreview.pdf">
+  <meta name="theme-color" content="#0f172a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
+  <header class="topbar">
+    <div class="topbar-inner">
       <a class="brand" href="#top">SurveyReview</a>
       <nav class="topnav">
+        <a href="#abstract">Abstract</a>
         <a href="#overview">Overview</a>
-        <a href="#dimensions">Dimensions</a>
-        <a href="#dataset">Dataset</a>
-        <a href="#leaderboard">Leaderboard</a>
-        <a href="#examples">Examples</a>
-        <a href="#use">Use It</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#bibtex">BibTeX</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Benchmark Website</p>
-          <h1 id="hero-title">SurveyReview</h1>
-          <p id="hero-subtitle" class="hero-subtitle">
-            A Reviewer-Aligned Benchmark for Survey Evaluators
-          </p>
-          <p id="hero-announcement" class="hero-announcement"></p>
-          <div id="hero-links" class="hero-links"></div>
+  <main id="top" class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Academic Project Page</p>
+        <h1>SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators</h1>
+        <div class="author-line">
+          <span>Yuheng Zhang</span>
+          <span>Yuanchun Wang</span>
+          <span>Fanjin Zhang</span>
+          <span>Ruyu Zhao</span>
+          <span>Juanzi Li</span>
+          <span>Jie Tang</span>
+          <span>Jing Zhang</span>
         </div>
-        <aside class="hero-panel">
-          <div class="hero-panel-head">
-            <span>Current release</span>
-            <strong>Anonymized test version</strong>
+        <p class="affiliation">Renmin University of China, Tsinghua University</p>
+        <p class="venue">Code and data release for a reviewer-aligned benchmark of survey evaluation.</p>
+        <div class="hero-actions">
+          <a class="button dark" href="./static/pdfs/surveyreview.pdf" target="_blank" rel="noreferrer">Paper</a>
+          <a class="button dark" href="https://github.com/brighterr/SurveyReview" target="_blank" rel="noreferrer">Code</a>
+          <a class="button light" href="#bibtex">BibTeX</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <img src="./static/images/hero-preview.svg" alt="SurveyReview preview" class="hero-image">
+        <div class="stat-grid">
+          <div class="stat">
+            <strong>675</strong>
+            <span>survey papers</span>
           </div>
-          <div id="hero-metrics" class="hero-metrics"></div>
-        </aside>
-      </section>
+          <div class="stat">
+            <strong>1,630</strong>
+            <span>review reports</span>
+          </div>
+          <div class="stat">
+            <strong>4</strong>
+            <span>review dimensions</span>
+          </div>
+          <div class="stat">
+            <strong>2.28 → 1.38</strong>
+            <span>avg. MSE with SurveyAlign</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section id="overview" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Overview</p>
-          <h2>Benchmarking survey evaluation like a reviewer</h2>
-        </div>
-        <div class="overview-grid">
-          <article class="copy-card">
-            <p id="overview-intro"></p>
-          </article>
-          <article class="copy-card">
-            <h3>What this release contains</h3>
-            <ul id="overview-highlights" class="bullet-list"></ul>
-          </article>
-        </div>
-      </section>
+    <section id="abstract" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Abstract</p>
+        <h2>Why this benchmark exists</h2>
+      </div>
+      <div class="panel prose">
+        <p>
+          SurveyReview turns real peer-review reports into a benchmark for evaluating automatic survey judges. The dataset converts free-form reviewer comments into structured scores and rationales across readability, criticalness, comprehensiveness, and structure, so model outputs can be compared against human review behavior instead of generic text quality signals.
+        </p>
+        <p>
+          The paper also introduces SurveyAlign, a strong baseline built on Qwen3-32B with LoRA and knowledge augmentation. On the test set, it improves reviewer alignment over GPT-5.2 by lowering average MSE from 2.28 to 1.38 and MAE from 1.15 to 0.69.
+        </p>
+      </div>
+    </section>
 
-      <section id="dimensions" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Dimensions</p>
-          <h2>Four reviewer-aligned scoring axes</h2>
-        </div>
-        <div id="dimension-grid" class="dimension-grid"></div>
-      </section>
+    <section id="overview" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Overview</p>
+        <h2>What the project contains</h2>
+      </div>
+      <div class="grid two">
+        <article class="panel">
+          <h3>Benchmark design</h3>
+          <p>
+            Four dimensions reflect what reviewers actually judge in survey papers. Each example stores a discrete score and a supporting rationale, making the benchmark useful for both score prediction and reasoning evaluation.
+          </p>
+        </article>
+        <article class="panel">
+          <h3>Released artifacts</h3>
+          <ul class="list">
+            <li>Reviewer-aligned dataset built from 675 survey papers and 1,630 reports.</li>
+            <li>Standardized train/test splits and evaluation protocol.</li>
+            <li>Baseline evaluator and reasoning-quality metric.</li>
+            <li>Public code repository for reproduction and extension.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="section-head">
-          <p class="eyebrow">Pipeline</p>
-          <h2>How SurveyReview is organized</h2>
-        </div>
-        <div id="pipeline-grid" class="pipeline-grid"></div>
-      </section>
+    <section id="method" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Method</p>
+        <h2>How SurveyReview is structured</h2>
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <span class="step">01</span>
+          <h3>Collect review reports</h3>
+          <p>Use authentic peer-review comments from survey papers and convert them into a unified annotation schema.</p>
+        </article>
+        <article class="panel">
+          <span class="step">02</span>
+          <h3>Score four dimensions</h3>
+          <p>Map each report into readability, criticalness, comprehensiveness, and structure with paired rationales.</p>
+        </article>
+        <article class="panel">
+          <span class="step">03</span>
+          <h3>Measure alignment</h3>
+          <p>Report MSE, MAE, and reason-quality scores to quantify how closely automatic evaluators match human reviewers.</p>
+        </article>
+      </div>
+    </section>
 
-      <section id="dataset" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Dataset Snapshot</p>
-          <h2>Current testset distribution</h2>
-        </div>
-        <div id="dataset-grid" class="dataset-grid"></div>
-      </section>
+    <section id="results" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Results</p>
+        <h2>Baseline performance snapshot</h2>
+      </div>
+      <div class="grid two">
+        <article class="panel">
+          <h3>Key result</h3>
+          <p>
+            SurveyAlign is the paper's strongest baseline. It reduces average MSE from 2.28 to 1.38 and MAE from 1.15 to 0.69 on the benchmark test set.
+          </p>
+        </article>
+        <article class="panel">
+          <h3>Primary links</h3>
+          <p class="link-row">
+            <a href="./static/pdfs/surveyreview.pdf" target="_blank" rel="noreferrer">PDF</a>
+            <a href="https://github.com/brighterr/SurveyReview" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="#bibtex">Cite</a>
+          </p>
+        </article>
+      </div>
+      <div class="table-panel">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>SSR ↑</th>
+              <th>Avg. MSE ↓</th>
+              <th>Avg. MAE ↓</th>
+              <th>RQS ↑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="is-top">
+              <td>1</td>
+              <td>SurveyAlign (ours)</td>
+              <td>0.74</td>
+              <td>1.38</td>
+              <td>0.69</td>
+              <td>0.36</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>GPT-5.2</td>
+              <td>0.68</td>
+              <td>2.28</td>
+              <td>1.15</td>
+              <td>0.42</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Claude-Opus-4.5</td>
+              <td>0.68</td>
+              <td>2.77</td>
+              <td>1.25</td>
+              <td>0.48</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Qwen3-32B</td>
+              <td>0.61</td>
+              <td>3.21</td>
+              <td>1.51</td>
+              <td>0.36</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-      <section id="leaderboard" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Leaderboard</p>
-          <h2>Current benchmark results</h2>
-        </div>
-        <div class="table-wrap">
-          <table class="leaderboard-table">
-            <thead>
-              <tr>
-                <th rowspan="2">Rank</th>
-                <th rowspan="2">Model</th>
-                <th rowspan="2">SSR ↑</th>
-                <th colspan="2">Read.</th>
-                <th colspan="2">Crit.</th>
-                <th colspan="2">Comp.</th>
-                <th colspan="2">Stru.</th>
-                <th colspan="2">AVE</th>
-                <th rowspan="2">RQS ↑</th>
-              </tr>
-              <tr>
-                <th>MSE</th>
-                <th>MAE</th>
-                <th>MSE</th>
-                <th>MAE</th>
-                <th>MSE</th>
-                <th>MAE</th>
-                <th>MSE</th>
-                <th>MAE</th>
-                <th>MSE</th>
-                <th>MAE</th>
-              </tr>
-            </thead>
-            <tbody id="leaderboard-body"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="examples" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Examples</p>
-          <h2>Representative reviewer comments</h2>
-        </div>
-        <div class="examples-shell">
-          <div id="example-tabs" class="example-tabs"></div>
-          <article class="example-card">
-            <div class="example-head">
-              <div>
-                <p id="example-dimension" class="example-label"></p>
-                <h3 id="example-title"></h3>
-              </div>
-              <div id="example-score" class="score-badge"></div>
-            </div>
-            <p id="example-uid" class="muted"></p>
-            <p id="example-summary" class="example-summary"></p>
-            <ul id="example-reasons" class="bullet-list"></ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="use" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Use It</p>
-          <h2>How to plug in your own links later</h2>
-        </div>
-        <div class="overview-grid">
-          <article class="copy-card">
-            <h3>Immediate usage</h3>
-            <ul id="usage-list" class="bullet-list"></ul>
-          </article>
-          <article class="copy-card">
-            <h3>Release note</h3>
-            <p id="release-note"></p>
-            <p class="contact-line">
-              Contact:
-              <a id="contact-link" href="#"></a>
-            </p>
-          </article>
-        </div>
-      </section>
-    </main>
-  </div>
+    <section id="bibtex" class="section">
+      <div class="section-head">
+        <p class="eyebrow">BibTeX</p>
+        <h2>Citation</h2>
+      </div>
+      <div class="panel code">
+        <button class="copy-button" type="button" onclick="copyBibTeX()">Copy BibTeX</button>
+        <pre id="bibtex-code">@article{zhang2026surveyreview,
+  title={SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators},
+  author={Zhang, Yuheng and Wang, Yuanchun and Zhang, Fanjin and Zhao, Ruyu and Li, Juanzi and Tang, Jie and Zhang, Jing},
+  year={2026},
+  url={https://github.com/brighterr/SurveyReview}
+}</pre>
+      </div>
+    </section>
+  </main>
 
   <script src="./script.js"></script>
 </body>
