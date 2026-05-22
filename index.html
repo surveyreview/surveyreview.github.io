@@ -33,7 +33,10 @@
   <main id="top">
     <section class="hero publication-hero">
       <div class="container narrow has-text-centered">
-        <img class="project-logo" src="./static/images/logo.svg" alt="SurveyReview logo">
+        <div class="project-logo" aria-label="Survey Review">
+          <img class="project-icon" src="./assets/icon.png" alt="">
+          <span>Survey Review</span>
+        </div>
         <h1 class="publication-title">SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators</h1>
 
         <div class="publication-authors">
@@ -54,12 +57,6 @@
 
         <div class="publication-links">
           <span class="link-block">
-            <a class="button is-dark" href="./static/pdfs/surveyreview.pdf" target="_blank" rel="noreferrer">
-              <span class="icon">PDF</span>
-              <span>Paper</span>
-            </a>
-          </span>
-          <span class="link-block">
             <a class="button is-dark" href="https://github.com/brighterr/SurveyReview" target="_blank" rel="noreferrer">
               <span class="icon">GH</span>
               <span>Code</span>
@@ -71,21 +68,15 @@
               <span>Results</span>
             </a>
           </span>
-          <span class="link-block">
-            <a class="button is-dark" href="#bibtex">
-              <span class="icon">Cite</span>
-              <span>BibTeX</span>
-            </a>
-          </span>
         </div>
       </div>
     </section>
 
     <section class="section hero is-light is-small" id="overview">
-      <div class="container narrow">
+      <div class="container">
         <div class="feature-card">
           <h2 class="title has-text-centered"><span>What is SurveyReview?</span></h2>
-          <img class="overview-image" src="./static/images/hero-preview.svg" alt="SurveyReview benchmark overview">
+          <img class="overview-image main-overview-image" src="./assets/main-0209.png" alt="SurveyReview benchmark overview">
           <div class="content">
             <p class="lead">
               SurveyReview is a reviewer-aligned benchmark for evaluating whether automatic survey evaluators make judgments that match human peer reviewers.
@@ -115,27 +106,6 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="method">
-      <div class="container narrow">
-        <h2 class="title has-text-centered">SurveyReview Pipeline</h2>
-        <img class="wide-figure" src="./static/images/pipeline.svg" alt="SurveyReview pipeline">
-        <div class="method-grid">
-          <article class="box">
-            <h3>1. Peer-review data</h3>
-            <p>Collect survey papers and authentic review reports, then organize comments into a reviewer-aligned annotation schema.</p>
-          </article>
-          <article class="box">
-            <h3>2. Multi-dimensional labels</h3>
-            <p>Convert free-form comments into scores and rationales for readability, criticalness, comprehensiveness, and structure.</p>
-          </article>
-          <article class="box">
-            <h3>3. Alignment evaluation</h3>
-            <p>Measure automatic evaluators with MSE, MAE, SSR, and RQS to capture score accuracy and rationale fidelity.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -193,41 +163,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="resources">
-      <div class="container narrow">
-        <h2 class="title has-text-centered">Resources</h2>
-        <div class="resource-grid">
-          <a class="resource-card" href="./static/pdfs/surveyreview.pdf" target="_blank" rel="noreferrer">
-            <strong>Paper</strong>
-            <span>Read the full SurveyReview manuscript.</span>
-          </a>
-          <a class="resource-card" href="https://github.com/brighterr/SurveyReview" target="_blank" rel="noreferrer">
-            <strong>Code</strong>
-            <span>Reproduce the benchmark and baseline evaluator.</span>
-          </a>
-          <a class="resource-card" href="https://github.com/brighterr/SurveyReview/tree/main/data/testset" target="_blank" rel="noreferrer">
-            <strong>Dataset</strong>
-            <span>Access the current benchmark data release.</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hero is-light" id="bibtex">
-      <div class="container narrow">
-        <h2 class="title has-text-centered">BibTeX</h2>
-        <div class="bibtex-box">
-          <button class="copy-bibtex-btn" type="button" onclick="copyBibTeX()">Copy</button>
-          <pre id="bibtex-code">@article{zhang2026surveyreview,
-  title={SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators},
-  author={Zhang, Yuheng and Wang, Yuanchun and Zhang, Fanjin and Zhao, Ruyu and Li, Juanzi and Tang, Jie and Zhang, Jing},
-  year={2026},
-  url={https://github.com/brighterr/SurveyReview}
-}</pre>
         </div>
       </div>
     </section>

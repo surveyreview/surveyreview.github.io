@@ -70,15 +70,29 @@ a {
 }
 
 .project-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin: 0 auto 1.8rem;
+  color: var(--text);
+  font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.project-icon {
   display: block;
-  width: min(360px, 72vw);
-  margin: 0 auto 2rem;
+  width: clamp(58px, 9vw, 92px);
+  height: clamp(54px, 8.4vw, 86px);
+  object-fit: contain;
 }
 
 .publication-title {
   margin: 0 auto 1.5rem;
   color: var(--text);
-  font-size: clamp(2.35rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4.1vw, 3.25rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
@@ -201,8 +215,7 @@ a {
   box-shadow: var(--shadow-lg);
 }
 
-.overview-image,
-.wide-figure {
+.overview-image {
   display: block;
   width: 100%;
   border-radius: var(--radius-lg);
@@ -214,9 +227,10 @@ a {
   margin: 0 auto 1.8rem;
 }
 
-.wide-figure {
-  margin: 0 auto 2rem;
-  border: 1px solid var(--border);
+.main-overview-image {
+  width: 100%;
+  max-width: 1120px;
+  box-shadow: var(--shadow-md);
 }
 
 .content {
@@ -249,60 +263,6 @@ a {
 
 .text-column {
   width: min(100%, 760px);
-}
-
-.method-grid,
-.resource-grid {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.method-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.resource-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.box,
-.resource-card {
-  display: block;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--white);
-  box-shadow: var(--shadow-md);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.box:hover,
-.resource-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.box h3 {
-  margin: 0 0 0.7rem;
-  color: var(--text);
-  font-size: 1.12rem;
-}
-
-.box p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.resource-card strong {
-  display: block;
-  margin-bottom: 0.45rem;
-  color: var(--text);
-  font-size: 1.15rem;
-}
-
-.resource-card span {
-  color: var(--muted);
 }
 
 .section-note {
@@ -355,47 +315,6 @@ tbody tr.is-top td {
   font-weight: 700;
 }
 
-.bibtex-box {
-  position: relative;
-  overflow: auto;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--white);
-  box-shadow: var(--shadow-md);
-}
-
-.copy-bibtex-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  min-height: 36px;
-  padding: 0 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--accent-bg);
-  color: var(--text);
-  cursor: pointer;
-  font-weight: 700;
-  transition: var(--transition);
-}
-
-.copy-bibtex-btn:hover {
-  background: var(--primary);
-  color: var(--white);
-}
-
-pre {
-  margin: 0;
-  padding-top: 1.8rem;
-  color: var(--text);
-  white-space: pre-wrap;
-  word-break: break-word;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.92rem;
-  line-height: 1.7;
-}
-
 .footer {
   padding: 2.5rem 0;
   background: var(--white);
@@ -426,11 +345,6 @@ pre {
 }
 
 @media (max-width: 900px) {
-  .method-grid,
-  .resource-grid {
-    grid-template-columns: 1fr;
-  }
-
   .publication-hero {
     padding-top: 3rem;
   }
@@ -451,7 +365,7 @@ pre {
   }
 
   .publication-title {
-    font-size: 2.15rem;
+    font-size: 1.85rem;
   }
 
   .publication-authors {
