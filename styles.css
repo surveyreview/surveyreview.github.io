@@ -283,24 +283,35 @@ a {
 
 table {
   width: 100%;
-  min-width: 760px;
+  min-width: 1180px;
   border-collapse: collapse;
 }
 
 th,
 td {
-  padding: 1rem 1.1rem;
+  padding: 0.85rem 0.8rem;
   border-bottom: 1px solid var(--border);
-  text-align: left;
+  text-align: center;
 }
 
 th {
   color: var(--text);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
+  vertical-align: middle;
 }
 
 td {
   color: var(--muted);
+  font-size: 0.94rem;
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+  text-align: left;
+}
+
+td b {
+  color: var(--text);
 }
 
 tbody tr:last-child td {
