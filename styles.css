@@ -337,6 +337,34 @@ tbody tr.is-top td {
   font-weight: 700;
 }
 
+.metric-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.metric-note {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-note h3 {
+  margin: 0 0 0.45rem;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.metric-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 .footer {
   padding: 2.5rem 0;
   background: var(--white);
@@ -367,6 +395,10 @@ tbody tr.is-top td {
 }
 
 @media (max-width: 900px) {
+  .metric-notes {
+    grid-template-columns: 1fr;
+  }
+
   .publication-hero {
     padding-top: 3rem;
   }
