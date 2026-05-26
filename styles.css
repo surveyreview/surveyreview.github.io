@@ -181,6 +181,16 @@ a {
   font-weight: 800;
 }
 
+.brand-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.hf-icon {
+  font-size: 0.95rem;
+}
+
 .section {
   padding: 4rem 0;
 }
