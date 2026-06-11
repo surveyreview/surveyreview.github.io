@@ -191,6 +191,14 @@ a {
   font-size: 0.95rem;
 }
 
+.image-icon img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .section {
   padding: 4rem 0;
 }
