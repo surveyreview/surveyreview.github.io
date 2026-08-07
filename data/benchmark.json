@@ -1,7 +1,7 @@
 {
   "paperTitle": "SurveyReview: A Reviewer-Aligned Benchmark for Survey Evaluators",
   "paperUrl": "./static/pdfs/surveyreview.pdf",
-  "codeUrl": "https://github.com/brighterr/SurveyReview",
+  "codeUrl": "https://github.com/zai-org/SurveyReview",
   "authors": [
     "Yuheng Zhang",
     "Yuanchun Wang",
